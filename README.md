@@ -1,6 +1,6 @@
 # Google Software Product Sprint
 
-This repo contains the Ani's portfolio and SPS projects.
+This repo contains Ani's portfolio and SPS projects.
 
 To get started:
 
