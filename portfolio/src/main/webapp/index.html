@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
-    </div>
-  </body>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Ani Srikanth</title>
+	<link rel="stylesheet" href="style.css">
+	<!-- Font Links -->
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Karla@1&display=swap" rel="stylesheet">
+
+
+	<script src="script.js"></script>
+
+</head>
+
+<body>
+	<div id="about-content">
+		<img id="aboutPic" src="images/selfie.JPG" width="250px">
+		<div id="text">
+			<h1>Welcome to Ani Srikanth's Portfolio!</h1>
+			<p>This is my portfolio.</p>
+			<p>I'm a Computer Engineering student from
+				<span id="imgTrigger" onmouseout="switchPic('og')" onmouseover="switchPic('toronto')">Toronto, Canada</span>.
+				I love hip-hop,
+				movies, and writing software. My
+				dream is to be able to work on the next
+				<span id="imgTrigger" onmouseout="switchPic('og')" onmouseover="switchPic('mars')">Mars rover mission!</span>
+			</p>
+		</div>
+	</div>
+	<div id="messageContainer">
+		<p>Click here to get a random message:</p>
+		<button onclick="addRandomGreeting()">Hello</button>
+		<div id="greeting-container">
+			<p id="greeting"></p>
+		</div>
+	</div>
+	</div>
+</body>
+
 </html>

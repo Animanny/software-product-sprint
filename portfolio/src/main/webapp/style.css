@@ -1,9 +1,57 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+body {
+    background-color: #9a90ff;
 }
+
+p {
+    color:white;
+    font-family: 'Karla', sans-serif;
+    font-size: 25px;
+    line-height: 34px;
+    user-select: none;
+}
+
+#about-content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 850px;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-column-gap: 50px;
+}
+
+#about-content img{
+    grid-column-start: 1;
+    width: 100%;
+    align-self: center;
+    border: white 8px solid;
+}
+
+#about-content #text {
+    grid-column-start: 2;
+}
+
+#about-content h1 {
+    color:white;
+    font-family: 'Inter', sans-serif;
+    font-size: 50px;
+    user-select: none;
+}
+
+#imgTrigger{
+    border-bottom: white dotted;
+}
+
+#imgTrigger:hover {
+    border-bottom: none;
+}
+
 
 #greeting-container {
   margin-top: 20px;
+}
+
+#messageContainer{
+    margin-left: auto;
+    margin-right: auto;
+    width: 850px;
 }
