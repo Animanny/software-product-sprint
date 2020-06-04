@@ -23,6 +23,28 @@ function addRandomGreeting() {
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
 
   // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
+  const greetingContainer = document.getElementById('greeting');
   greetingContainer.innerText = greeting;
+}
+
+
+/*
+* Handles image replacement on hover
+*/
+function switchPic (trigger) {
+    imgAddress = null;
+    switch(trigger){
+        case 'toronto':
+            imgAddress  = "images/toronto.jpg";
+            break;
+        case 'og':
+            imgAddress = "images/selfie.JPG";
+            break;
+        case 'mars':
+            imgAddress = "images/mars_rover.jpg"
+            break;
+        default:
+
+    }
+    document.getElementById("aboutPic").src = imgAddress;
 }
