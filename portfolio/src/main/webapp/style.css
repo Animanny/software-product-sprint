@@ -1,5 +1,56 @@
 body {
-    background-color: #9a90ff;
+    background-color: #0e0e0e;
+}
+
+#starCanvas {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    display: block;
+    width: 100%;
+    background-color: #0e0e0e;
+    z-index: -1;
+}
+
+#starContainer{
+    position: relative;
+    justify-content: center;
+    display: block;
+}
+
+#landing {
+    width: 835px;
+    margin-left: auto;
+    margin-right: auto;
+    height:100vh;
+}
+
+#landing h1{
+    font-family: 'Libre Baskerville', serif;
+    color:white;
+    font-size: 80px;
+    user-select: none;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+#landing p{
+    text-align: center;
+}
+
+#landing button {
+    background-color: #0b0b0b;
+    width: 200px;
+    height: 44px;
+    color: white;
+    border: 1px solid;
+    border-radius: 44px;
+    margin-left:calc((100% - 200px)/2);
+}
+
+#landingContent{
+    margin-top:calc((100vh - 220px)/2);
 }
 
 p {
