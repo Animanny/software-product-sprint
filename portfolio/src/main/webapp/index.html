@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="style.css">
 	<!-- Font Links -->
 	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Karla@1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
 
 
 	<script src="script.js"></script>
@@ -16,125 +16,144 @@
 
 <body>
 	<div id="starContainer">
-        <div id="landing">
-            <div id="landingContent">
-                <h1>ani srikanth</h1>
-                <p>portfolio 2020</p>
-                <a href="https://drive.google.com/open?id=1xFMzh4TMwRt8aA31bT6K014g42u12JAi"><button>RESUME</button></a>
-            </div>
-        </div>
-
-		<div id="about-content">
-			<img id="aboutPic" src="images/selfie.JPG" width="250px">
-			<div id="text">
-				<h1>Welcome to Ani Srikanth's Portfolio!</h1>
-				<p>This is my portfolio.</p>
-				<p>I'm a Computer Engineering student from
-					<span id="imgTrigger" onmouseout="switchPic('og')" onmouseover="switchPic('toronto')">Toronto, Canada</span>.
-					I love hip-hop,
-					movies, and writing software. My
-					dream is to be able to work on the next
-					<span id="imgTrigger" onmouseout="switchPic('og')" onmouseover="switchPic('mars')">Mars rover mission!</span>
-				</p>
+		<div id="landing">
+			<div id="landingContent">
+				<h1>ani srikanth</h1>
+				<p>//portfolio 2020//</p>
+				<a href="https://drive.google.com/open?id=1xFMzh4TMwRt8aA31bT6K014g42u12JAi"><button>RESUME</button></a>
 			</div>
 		</div>
-		<div id="messageContainer">
-			<p>Click here to get a random message:</p>
-			<button onclick="addRandomGreeting()">Hello</button>
-			<div id="greeting-container">
-				<p id="greeting"></p>
-			</div>
+		<canvas id="starCanvas"></canvas>
+	</div>
+	<div id="about-content">
+		<img id="aboutPic" src="images/selfie.JPG" width="250px">
+		<div id="text">
+			<h1>Welcome to Ani Srikanth's Portfolio!</h1>
+			<p>This is my portfolio.</p>
+			<p>I'm a Computer Engineering student from
+				<span id="imgTrigger" onmouseout="switchPic('og')" onmouseover="switchPic('toronto')">Toronto, Canada</span>.
+				I love hip-hop,
+				movies, and writing software. My
+				dream is to be able to work on the next
+				<span id="imgTrigger" onmouseout="switchPic('og')" onmouseover="switchPic('mars')">Mars rover mission!</span>
+			</p>
+		</div>
+	</div>
+	<div id="messageContainer">
+		<p>Click here to get a random message:</p>
+		<button onclick="addRandomGreeting()">Hello</button>
+		<div id="greeting-container">
+			<p id="greeting"></p>
 		</div>
 	</div>
 
-	<canvas id="starCanvas"></canvas>
+
 
 	<script>
-		//canvas init
-	var canvas = document.getElementById("starCanvas");
-	var ctx = canvas.getContext("2d");
-	
-	//canvas dimensions
-	var W = window.innerWidth;
-	var H = window.innerHeight;
-	canvas.width = W;
-	canvas.height = H;
-	
-	//snowflake particles
-	var mp = 100; //max particles
-	var particles = [];
-	for(var i = 0; i < mp; i++)
-	{
-		particles.push({
-			x: Math.random()*W, //x-coordinate
-			y: Math.random()*H, //y-coordinate
-			r: Math.random()+.55, //radius
-			d: Math.random()*mp //density
-		})
-	}
-	
-	//Lets draw the flakes
-	function draw()
-	{
-		ctx.clearRect(0, 0, W, H);
-		
-		ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
-		ctx.beginPath();
-		for(var i = 0; i < mp; i++)
-		{
-			var p = particles[i];
-			ctx.moveTo(p.x, p.y);
-			ctx.arc(p.x, p.y, p.r, 0, Math.PI*2, true);
-		}
-		ctx.fill();
-		update();
-	}
-	
-	//Function to move the snowflakes
-	//angle will be an ongoing incremental flag. Sin and Cos functions will be applied to it to create vertical and horizontal movements of the flakes
-	var angle = Math.random()*180;
-	function update()
-	{
+		// Will it be a storm or peaceful?
+    var COUNT = 666;
 
-		for(var i = 0; i < mp; i++)
-		{
-            
-			var p = particles[i];
-			//Updating X and Y coordinates
-			//We will add 1 to the cos function to prevent negative values which will lead flakes to move upwards
-			//Every particle has its own density which can be used to make the downward movement different for each flake
-			//Lets make it more random by adding in the radius
-			p.y += ((-((Math.cos(angle) + 1)))*(p.r-.55))/2;
-			p.x += ((((Math.cos(angle) + 1)))*(p.r-.55))/2;
-			
-			//Sending flakes back from the top when it exits
-			//Lets make it a bit more organic and let flakes enter from the left and right also.
-			if(p.x > W+5 || p.x < -5 || p.y < 0)
-			{
-				if(i%3 > 0) //66.67% of the flakes
-				{
-					particles[i] = {x: Math.random()*W, y: H, r: p.r, d: p.d};
-				}
-				else
-				{
-					//If the flake is exitting from the right
-					if(Math.sin(angle) > 0)
-					{
-						//Enter from the left
-						particles[i] = {x: -5, y: Math.random()*H, r: p.r, d: p.d};
-					}
-					else
-					{
-						//Enter from the right
-						particles[i] = {x: W+5, y: Math.random()*H, r: p.r, d: p.d};
-					}
-				}
-			}
-		}
-	}
-	
-	//animation loop
-	setInterval(draw, 33);
+    // Get our cotaniner
+    var snowContainer = document.getElementById('starContainer');
+
+    // Create the canvas element
+    var canvas = document.getElementById('starCanvas');
+    var ctx = canvas.getContext('2d');
+
+    // Get the size of the container, that's why we defined the height in the HTML
+    var width = snowContainer.clientWidth;
+    var height = snowContainer.clientHeight;
+    var i = 0;
+    var active = false;
+
+    function onResize() {
+        width = snowContainer.clientWidth;
+        height = snowContainer.clientHeight;
+        canvas.width = width;
+        canvas.height = height;
+        ctx.fillStyle = '#FFF';
+
+        requestAnimFrame(update);
+    }
+
+    var Snowflake = function () {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.r = Math.random() + .55;
+        this.vy = this.r * ((.1 + Math.abs(Math.random() - .5)) * -.28);
+        this.vx = this.vy;
+
+        // Bigger snow?
+        this.o = 0.5 + Math.random();
+    }
+
+    // You can set up the
+    Snowflake.prototype.reset = function () {
+        if (Math.random() > 0.5) {
+            this.x = width;
+            this.y = Math.random() * height;
+        } else {
+            this.x = Math.random() * width;
+            this.y = height;
+        }
+
+        // More speed? Change this
+
+        this.r = Math.random() + .55;
+        this.vy = this.r * (Math.abs(Math.random() - 1) * -.23);
+        this.vx = this.vy;
+
+        // Bigger snow?
+        this.o = 0.5 + Math.random();
+    }
+
+    canvas.style.position = 'absolute';
+    canvas.style.left = canvas.style.top = '0';
+
+    var snowflakes = [],
+        snowflake;
+    for (i = 0; i < COUNT; i++) {
+        snowflake = new Snowflake();
+        snowflakes.push(snowflake);
+    }
+
+    function update() {
+
+        ctx.clearRect(0, 0, width, height);
+
+        for (i = 0; i < COUNT; i++) {
+            snowflake = snowflakes[i];
+            snowflake.y += snowflake.vy;
+            snowflake.x += snowflake.vx;
+
+            ctx.globalAlpha = snowflake.o;
+            ctx.beginPath();
+            ctx.arc(snowflake.x, snowflake.y, snowflake.r, 0, Math.PI * 2, false);
+            ctx.closePath();
+            ctx.fill();
+
+            if (snowflake.y > height || snowflake.y < 0 || snowflake.x > width || snowflake.x < 0) {
+                snowflake.reset();
+            }
+        }
+
+        requestAnimFrame(update);
+    }
+
+    // shim layer with setTimeout fallback
+    window.requestAnimFrame = (function () {
+        return window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            function (callback) {
+                window.setTimeout(callback, 1000 / 60);
+            };
+    })();
+
+    onResize();
+    window.addEventListener('resize', onResize, false);
+
+    snowContainer.appendChild(canvas);
 	</script>
 </body>
 
