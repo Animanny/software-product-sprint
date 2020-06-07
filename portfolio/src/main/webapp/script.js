@@ -44,3 +44,22 @@ function switchPic (trigger) {
     }
     document.getElementById("aboutPic").src = imgAddress;
 }
+
+// Switch image for the experience container
+function experienceImgHandler(job){
+    imgAddress = null;
+    switch(job){
+        case 'cipher':
+            imgAddress  = "images/cipher_coming_soon.png";
+            break;
+        case 'htn':
+            imgAddress = "images/hackTheNorth.png";
+            break;
+        case 'capriccio':
+            imgAddress = "images/capriccio_coming_soon.png";
+            break;
+        default:
+
+    }
+    document.getElementById("experienceImage").src = imgAddress;
+}

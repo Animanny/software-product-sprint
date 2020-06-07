@@ -19,17 +19,56 @@
 		<div id="landing">
 			<div id="landingContent">
 				<h1>ani srikanth</h1>
-				<p>//portfolio 2020//</p>
+				<p>// portfolio 2020 //</p>
 				<a href="https://drive.google.com/open?id=1xFMzh4TMwRt8aA31bT6K014g42u12JAi"><button>RESUME</button></a>
+			</div>
+		</div>
+
+		<div id="experiences">
+			<h1>work</h1>
+			<div id="intuit" onmouseover="experienceImgHandler('htn')">
+				<h2>vr wizard chess</h2>
+				<h4>Hack The North 2018 Winner</h4>
+			</div>
+			<div id="google" onmouseover="experienceImgHandler('capriccio')">
+				<h2>capriccio</h2>
+				<h4>Handwritten Sheet Music Synthesized</h4>
+			</div>
+			<div id="cipher" onmouseover="experienceImgHandler('cipher')">
+				<h2>cipher</h2>
+				<h4>youth code community</h4>
+			</div>
+			<div id="experienceImg">
+				<img id="experienceImage" src="images/hackTheNorth.png">
+				<div style="width: 75px;
+    height: 75px;
+    position: absolute;
+    background-color: #fba5007d;
+    border-radius: 50%;
+    margin-top: -348px;
+    margin-left: -36.5px;"></div>
+				<div style="    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    position: absolute;
+    margin-top: -335px;
+    margin-left: -25px;">
+    <img style="
+    height: 50%;
+    width: 60%;
+    margin-top: 26%;
+    margin-left: 7%;
+" src="images/arrow.png">
+				</div>
 			</div>
 		</div>
 		<canvas id="starCanvas"></canvas>
 	</div>
 	<div id="about-content">
-		<img id="aboutPic" src="images/selfie.JPG" width="250px">
+		<img id="aboutPic" src="images/selfie.JPG">
 		<div id="text">
-			<h1>Welcome to Ani Srikanth's Portfolio!</h1>
-			<p>This is my portfolio.</p>
+			<h1>about</h1>
 			<p>I'm a Computer Engineering student from
 				<span id="imgTrigger" onmouseout="switchPic('og')" onmouseover="switchPic('toronto')">Toronto, Canada</span>.
 				I love hip-hop,
@@ -39,13 +78,7 @@
 			</p>
 		</div>
 	</div>
-	<div id="messageContainer">
-		<p>Click here to get a random message:</p>
-		<button onclick="addRandomGreeting()">Hello</button>
-		<div id="greeting-container">
-			<p id="greeting"></p>
-		</div>
-	</div>
+
 
 
 
