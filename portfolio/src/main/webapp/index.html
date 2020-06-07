@@ -50,8 +50,8 @@
 
 
 	<script>
-		// Will it be a storm or peaceful?
-    var COUNT = 666;
+	// Will it be a storm or peaceful?
+    var COUNT = 650;
 
     // Get our cotaniner
     var snowContainer = document.getElementById('starContainer');
@@ -83,11 +83,10 @@
         this.vy = this.r * ((.1 + Math.abs(Math.random() - .5)) * -.28);
         this.vx = this.vy;
 
-        // Bigger snow?
-        this.o = 0.5 + Math.random();
+        // Transparent snow?
+        this.opacity = 0.5 + Math.random();
     }
 
-    // You can set up the
     Snowflake.prototype.reset = function () {
         if (Math.random() > 0.5) {
             this.x = width;
@@ -103,8 +102,8 @@
         this.vy = this.r * (Math.abs(Math.random() - 1) * -.23);
         this.vx = this.vy;
 
-        // Bigger snow?
-        this.o = 0.5 + Math.random();
+        // ?
+        this.opacity = 0.5 + Math.random();
     }
 
     canvas.style.position = 'absolute';
@@ -126,7 +125,7 @@
             snowflake.y += snowflake.vy;
             snowflake.x += snowflake.vx;
 
-            ctx.globalAlpha = snowflake.o;
+            ctx.globalAlpha = snowflake.opacity;
             ctx.beginPath();
             ctx.arc(snowflake.x, snowflake.y, snowflake.r, 0, Math.PI * 2, false);
             ctx.closePath();
