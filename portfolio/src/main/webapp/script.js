@@ -50,7 +50,6 @@ function experienceImgHandler(job){
     imgAddress = null;
     switch(job){
         case 'cipher':
-            console.log("wtf");
             imgAddress  = "images/cipher_coming_soon.png";
             break;
         case 'htn':
