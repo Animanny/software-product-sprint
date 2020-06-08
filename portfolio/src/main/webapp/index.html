@@ -3,13 +3,13 @@
 
 <head>
 	<meta charset="UTF-8">
-    <title>Ani Srikanth</title>
-    <script src="https://kit.fontawesome.com/2ddbd86bc7.js" crossorigin="anonymous"></script>
+	<title>Ani Srikanth</title>
+	<script src="https://kit.fontawesome.com/2ddbd86bc7.js" crossorigin="anonymous"></script>
 	<!-- Font Links -->
 	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Karla@1&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style.css">
 	<script src="script.js"></script>
 
 </head>
@@ -40,27 +40,28 @@
 			</div>
 			<div id="experienceImg">
 				<img id="experienceImage" src="images/hackTheNorth.png">
-				<div style="width: 75px;
-    height: 75px;
-    position: absolute;
-    background-color: #fba5007d;
-    border-radius: 50%;
-    margin-top: -348px;
-    margin-left: -36.5px;"></div>
-				<div style="    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    background-color: orange;
-    position: absolute;
-    margin-top: -335px;
-    margin-left: -25px;">
-    <img style="
-    height: 50%;
-    width: 60%;
-    margin-top: 26%;
-    margin-left: 7%;
-" src="images/arrow.png">
-				</div>
+				<a id="projecLink" href="https://devpost.com/software/harry-potter-vr-chess-board">
+					<div style="width: 75px;
+                            height: 75px;
+                            position: absolute;
+                            background-color: #fba5007d;
+                            border-radius: 50%;
+                            margin-top: -348px;
+                            margin-left: -36.5px;"></div>
+					<div style="border-radius: 50%;
+                            width: 50px;
+                            height: 50px;
+                            background-color: orange;
+                            position: absolute;
+                            margin-top: -335px;
+                            margin-left: -25px;">
+						<img style="height: 50%;
+                                width: 60%;
+                                margin-top: 26%;
+                                margin-left: 7%;"
+                            src="images/arrow.png">
+				    </div>
+				</a>
 			</div>
 		</div>
 		<canvas id="starCanvas"></canvas>
@@ -76,26 +77,32 @@
 				dream is to be able to work on the next
 				<span id="imgTrigger" onmouseout="switchPic('og')" onmouseover="switchPic('mars')">Mars rover mission!</span>
 			</p>
-        </div>
-        <div id="contactContainer">
-            <div id="contactContent">
-                <h1>contact</h1>
-                <p id="contactBlurb">Wanna talk tech? Let's grab coffee!</p>
-                <i id="githubIcon" class="fab fa-github fa-2x"></i>
-                <i id="twitterIcon" class="fab fa-twitter fa-2x"></i>
-                <i id="igIcon" class="fab fa-instagram fa-2x"></i>
-                <a href="http://instagram.com/animanny"><p id="igHandle">@animanny</p></a>
-                <a href="http://twitter.com/digitalkami"><p id="twitterHandle">@digitalkami (don't ask)</p></a>
-                <a href="http://github.com/animanny"><p id="githubHandle">@animanny</p></a>
-            </div>
-        </div>
+		</div>
+		<div id="contactContainer">
+			<div id="contactContent">
+				<h1>contact</h1>
+				<p id="contactBlurb">Wanna talk tech? Let's grab coffee!</p>
+				<i id="githubIcon" class="fab fa-github fa-2x"></i>
+				<i id="twitterIcon" class="fab fa-twitter fa-2x"></i>
+				<i id="igIcon" class="fab fa-instagram fa-2x"></i>
+				<a href="http://instagram.com/animanny">
+					<p id="igHandle">@animanny</p>
+				</a>
+				<a href="http://twitter.com/digitalkami">
+					<p id="twitterHandle">@digitalkami (don't ask)</p>
+				</a>
+				<a href="http://github.com/animanny">
+					<p id="githubHandle">@animanny</p>
+				</a>
+			</div>
+		</div>
 	</div>
 
 
 
 
 	<script>
-	// Will it be a storm or peaceful?
+		// Will it be a storm or peaceful?
     var COUNT = 650;
 
     // Get our cotaniner
