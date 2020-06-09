@@ -43,18 +43,23 @@ body {
     text-align: center;
 }
 
-#landing button {
+#landing a {
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+    display: inline-block;
     background-color: #0b0b0b;
     width: 200px;
     height: 44px;
     color: white;
     border: 1px solid;
     border-radius: 44px;
-    margin-left:calc((100% - 200px)/2);
+    margin-left: calc((100% - 200px)/2);
+    text-decoration: none;
+    line-height: 44px;
     transition: 0.25s;
 }
 
-#landing button:hover{
+#landing a:hover{
     background-color: orange;
 }
 
