@@ -186,7 +186,7 @@ p {
     margin-right: auto;
     width: 100%;
     display: grid;
-    grid-template-columns: 25% 25% 50%;
+    grid-template-columns: 15% 15% 70%;
 }
 
 #about-content img{
@@ -228,7 +228,7 @@ p {
     width: 90%;
     margin-left: 5%;
     display:grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto ;
     grid-template-rows: auto auto auto auto auto auto;
 }
 
@@ -236,8 +236,6 @@ p {
     font-size:40px;
     margin-top:10px;
     margin-bottom:10px;
-    grid-column-start: 1;
-    grid-column-end: 3;
 }
 
 
@@ -255,7 +253,6 @@ p {
     margin-top:0px;
     margin-bottom:15px !important;
     grid-column-start: 1;
-    grid-column-end: 3;
 }
 
 #contactContent i{
@@ -278,19 +275,32 @@ p {
     grid-column-start: 1;
 }
 
-#igHandle {
-    grid-column-start: 2;
-    grid-row-start: 3;
-}
 
 #twitterHandle {
-    grid-column-start: 2;
-    grid-row-start: 4;
+    margin-left: 30px;
+}
+
+#igHandle {
+    margin-left: 30px;
 }
 
 #githubHandle {
-    grid-column-start: 2;
-    grid-row-start: 5;
+    margin-left: 30px;
+}
+
+#github{
+    display: flex;
+    grid-row-start:5;
+}
+
+#twitter{
+    display: flex;
+    grid-row-start:4;
+}
+
+#ig{
+    display: flex;
+    grid-row-start:3;
 }
 
 #imgTrigger{
