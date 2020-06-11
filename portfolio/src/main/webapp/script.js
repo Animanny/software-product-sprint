@@ -48,3 +48,10 @@ function experienceImgHandler(job){
     document.getElementById("experienceImage").src = imgAddress;
     document.getElementById("projecLink").href = projectLink;
 }
+
+//Fetch the greeting from the backend and display it on the page
+function fetchAndDisplayGreeting(){
+    fetch("/data").then(response => response.text()).then((greeting) => {
+        document.getElementById("greeting").innerHTML = greeting;
+    })
+}

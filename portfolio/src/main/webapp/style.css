@@ -315,3 +315,7 @@ p {
     margin-right: auto;
     width: 850px;
 }
+
+#greeting{
+    color: white;
+}
