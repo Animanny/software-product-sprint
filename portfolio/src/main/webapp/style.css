@@ -186,13 +186,15 @@ p {
     margin-right: auto;
     width: 100%;
     display: grid;
-    grid-template-columns: 25% 25% 50%;
+    grid-template-columns: 300px 300px auto;
 }
 
-#about-content img{
+#aboutPic {
+    background-image: url("images/selfie.JPG");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     grid-column-start: 1;
-    width: 100%;
-    align-self: center;
 }
 
 #about-content #text {
@@ -228,16 +230,15 @@ p {
     width: 90%;
     margin-left: 5%;
     display:grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto ;
     grid-template-rows: auto auto auto auto auto auto;
+    padding-bottom: 15px;
 }
 
 #contactContent h1{
     font-size:40px;
     margin-top:10px;
     margin-bottom:10px;
-    grid-column-start: 1;
-    grid-column-end: 3;
 }
 
 
@@ -255,7 +256,6 @@ p {
     margin-top:0px;
     margin-bottom:15px !important;
     grid-column-start: 1;
-    grid-column-end: 3;
 }
 
 #contactContent i{
@@ -278,29 +278,33 @@ p {
     grid-column-start: 1;
 }
 
-#igHandle {
-    grid-column-start: 2;
-    grid-row-start: 3;
-}
 
 #twitterHandle {
-    grid-column-start: 2;
-    grid-row-start: 4;
+    margin-left: 30px;
+}
+
+#igHandle {
+    margin-left: 30px;
 }
 
 #githubHandle {
-    grid-column-start: 2;
-    grid-row-start: 5;
+    margin-left: 30px;
 }
 
-#imgTrigger{
-    border-bottom: white dotted;
+#github a{
+    display: flex;
+    width:fit-content;
 }
 
-#imgTrigger:hover {
-    border-bottom: none;
+#twitter a{
+    display: flex;
+    width:fit-content;
 }
 
+#ig a{
+    display: flex;
+    width:fit-content;
+}
 
 #greeting-container {
   margin-top: 20px;
