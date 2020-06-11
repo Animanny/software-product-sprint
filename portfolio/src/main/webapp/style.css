@@ -186,13 +186,15 @@ p {
     margin-right: auto;
     width: 100%;
     display: grid;
-    grid-template-columns: 15% 15% 70%;
+    grid-template-columns: 300px 300px auto;
 }
 
-#about-content img{
+#aboutPic {
+    background-image: url("images/selfie.JPG");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     grid-column-start: 1;
-    width: 100%;
-    align-self: center;
 }
 
 #about-content #text {
@@ -230,6 +232,7 @@ p {
     display:grid;
     grid-template-columns: auto ;
     grid-template-rows: auto auto auto auto auto auto;
+    padding-bottom: 15px;
 }
 
 #contactContent h1{
@@ -288,29 +291,20 @@ p {
     margin-left: 30px;
 }
 
-#github{
+#github a{
     display: flex;
-    grid-row-start:5;
+    width:fit-content;
 }
 
-#twitter{
+#twitter a{
     display: flex;
-    grid-row-start:4;
+    width:fit-content;
 }
 
-#ig{
+#ig a{
     display: flex;
-    grid-row-start:3;
+    width:fit-content;
 }
-
-#imgTrigger{
-    border-bottom: white dotted;
-}
-
-#imgTrigger:hover {
-    border-bottom: none;
-}
-
 
 #greeting-container {
   margin-top: 20px;
