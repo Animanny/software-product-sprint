@@ -25,26 +25,6 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
-
-/* Handles image replacement on hover */
-function switchPic (trigger) {
-    imgAddress = null;
-    switch(trigger){
-        case 'toronto':
-            imgAddress  = "images/toronto.jpg";
-            break;
-        case 'og':
-            imgAddress = "images/selfie.JPG";
-            break;
-        case 'mars':
-            imgAddress = "images/mars_rover.jpg"
-            break;
-        default:
-
-    }
-    document.getElementById("aboutPic").src = imgAddress;
-}
-
 // Switch image for the experience container
 function experienceImgHandler(job){
     imgAddress = null;
