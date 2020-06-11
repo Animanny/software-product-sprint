@@ -310,12 +310,9 @@ p {
   margin-top: 20px;
 }
 
-#messageContainer{
+#messages{
     margin-left: auto;
     margin-right: auto;
     width: 850px;
-}
-
-#greeting{
-    color: white;
+    color:white;
 }
