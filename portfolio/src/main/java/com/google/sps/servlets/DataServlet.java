@@ -46,7 +46,8 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
-      comments.add(request.getParameter("username"));
+      String username = "@" + request.getParameter("username").replaceAll("\\s+",""); 
+      comments.add(username);
       response.sendRedirect("/index.html");
   }
 }
