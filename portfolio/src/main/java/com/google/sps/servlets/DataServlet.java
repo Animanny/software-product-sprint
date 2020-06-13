@@ -14,10 +14,6 @@
 
 package com.google.sps.servlets;
 
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.Entity;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -51,18 +47,8 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
       //Removes all the spaces from a user's name and appends an 'at sign' to the beginning
-      String username = "@" + request.getParameter("username").replaceAll("\\s+","");
-      long timestamp = System.currentTimeMillis();
-      Entity newVisitor = new Entity("Visitor");
-      newVisitor.setProperty("username", username);
-      newVisitor.setProperty("time",timestamp);
-      
-      DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
-
-      datastoreService.put(newVisitor);
-
+      String username = "@" + request.getParameter("username").replaceAll("\\s+",""); 
       comments.add(username);
-
       response.sendRedirect("/index.html");
   }
 }
