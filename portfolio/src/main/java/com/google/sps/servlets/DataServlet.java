@@ -29,21 +29,26 @@ import com.google.gson.Gson;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-  private ArrayList<String> messages = new ArrayList<String>();
+  private ArrayList<String> comments = new ArrayList<String>();
 
 
   @Override
   public void init() throws ServletException {
-    messages.add("Now I'm in the limelight 'cause I rhyme tight");
-    messages.add("No matter where life takes me. Find me with a smile");
-    messages.add("I'll give you all of me until there's nothing left");
   }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     Gson gson = new Gson();
-    String json = gson.toJson(messages);
+    String json = gson.toJson(comments);
     response.setContentType("text/html;");
     response.getWriter().println(json);
+  }
+
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
+      //Removes all the spaces from a user's name and appends an 'at sign' to the beginning
+      String username = "@" + request.getParameter("username").replaceAll("\\s+",""); 
+      comments.add(username);
+      response.sendRedirect("/index.html");
   }
 }
