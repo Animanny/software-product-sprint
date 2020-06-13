@@ -46,6 +46,7 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
+      //Removes all the spaces from a user's name and appends an 'at sign' to the beginning
       String username = "@" + request.getParameter("username").replaceAll("\\s+",""); 
       comments.add(username);
       response.sendRedirect("/index.html");
