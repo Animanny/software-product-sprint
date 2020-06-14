@@ -47,14 +47,14 @@ public class DataServlet extends HttpServlet {
       Query query = new Query("Visitor").addSort("time", SortDirection.DESCENDING);
       PreparedQuery results = datastoreService.prepare(query);
 
-      ArrayList<String> vistors = new ArrayList<>();
+      ArrayList<String> visitors = new ArrayList<>();
       for(Entity entity: results.asIterable()){
         String visitorHandle = (String) entity.getProperty("username");
-        vistors.add(visitorHandle);
+        visitors.add(visitorHandle);
       }
     
       Gson gson = new Gson();
-      String json = gson.toJson(vistors);
+      String json = gson.toJson(visitors);
       response.setContentType("text/html;");
       response.getWriter().println(json);
   }
