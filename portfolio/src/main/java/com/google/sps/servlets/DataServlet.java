@@ -17,6 +17,9 @@ package com.google.sps.servlets;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,8 +36,6 @@ import com.google.gson.Gson;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-  private ArrayList<String> comments = new ArrayList<String>();
-
 
   @Override
   public void init() throws ServletException {
@@ -42,10 +43,20 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    Gson gson = new Gson();
-    String json = gson.toJson(comments);
-    response.setContentType("text/html;");
-    response.getWriter().println(json);
+      DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
+      Query query = new Query("Visitor").addSort("time", SortDirection.DESCENDING);
+      PreparedQuery results = datastoreService.prepare(query);
+
+      ArrayList<String> visitors = new ArrayList<>();
+      for(Entity entity: results.asIterable()){
+        String visitorHandle = (String) entity.getProperty("username");
+        visitors.add(visitorHandle);
+      }
+    
+      Gson gson = new Gson();
+      String json = gson.toJson(visitors);
+      response.setContentType("text/html;");
+      response.getWriter().println(json);
   }
 
   @Override
@@ -61,7 +72,6 @@ public class DataServlet extends HttpServlet {
 
       datastoreService.put(newVisitor);
 
-      comments.add(username);
 
       response.sendRedirect("/index.html");
   }
