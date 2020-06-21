@@ -51,7 +51,12 @@ function experienceImgHandler(job){
 
 //Fetch the greeting from the backend and display it on the page
 function fetchAndDisplayGreeting(){
-    fetch("/data").then(response => response.text()).then((greeting) => {
-        document.getElementById("greeting").innerHTML = greeting;
+    fetch("/data").then(response => response.json()).then((messages) => {
+            var messageContainer = document.getElementById("messages");
+            messages.forEach((message) => {
+                var para = document.createElement("p");
+                para.innerText = message;
+                messageContainer.appendChild(para);
+            });
     })
 }
