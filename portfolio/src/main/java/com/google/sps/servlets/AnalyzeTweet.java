@@ -26,6 +26,10 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;
+import twitter4j.Paging;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/analyzeTwitter")
@@ -41,7 +45,11 @@ public class AnalyzeTweet extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
       //
       try{
-        Status status = twitter.updateStatus("OOGA BOOGA CAVEMAN BRAIN!");
+        List<Status> tl = twitter.getUserTimeline(request.getParameter("handle"), new Paging(1, 200));
+        tl.removeIf(status -> status.isRetweet());
+        System.out.println(tl.size());
+
+
       } catch(Exception e){
           e.printStackTrace();
       }
