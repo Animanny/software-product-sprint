@@ -31,6 +31,11 @@ import twitter4j.Paging;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.google.cloud.language.v1.Document;
+import com.google.cloud.language.v1.LanguageServiceClient;
+import com.google.cloud.language.v1.Sentiment;
+import com.google.gson.Gson;
+
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/analyzeTwitter")
 public class AnalyzeTweet extends HttpServlet {
@@ -43,12 +48,30 @@ public class AnalyzeTweet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-      //
+      float worstScore = Float.MAX_VALUE;
+      String worstScoreLink = null;
+
       try{
         List<Status> tl = twitter.getUserTimeline(request.getParameter("handle"), new Paging(1, 200));
+        LanguageServiceClient languageService = LanguageServiceClient.create();
+        
         tl.removeIf(status -> status.isRetweet());
-        System.out.println(tl.size());
+        for(Status status:tl){
+            Document doc = Document.newBuilder().setContent(status.getText()).setType(Document.Type.PLAIN_TEXT).build();
+            Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
+            float score = sentiment.getScore();
+            worstScoreLink = score < worstScore ? "https://twitter.com/" + status.getUser().getScreenName() + "/status/" + status.getId() : worstScoreLink;
+            worstScore = score < worstScore ? score : worstScore;
+            
+        }
+        languageService.close();
+        System.out.println("Worst Score: "+worstScore);
+        System.out.println("Worst Score Tweet: "+worstScoreLink);
 
+        Gson gson = new Gson();
+        String json = gson.toJson(worstScoreLink);
+        response.setContentType("text/html;");
+        response.getWriter().println(json);
 
       } catch(Exception e){
           e.printStackTrace();

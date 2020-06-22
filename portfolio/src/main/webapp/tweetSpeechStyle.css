@@ -20,6 +20,13 @@ p{
     text-align: center;
 }
 
+a{
+    font-family: 'Karla', sans-serif;
+    color: white;
+    font-size: 25px;
+    text-align: center;
+}
+
 #handle{
     width: 300px;
     height: 50px;
@@ -29,4 +36,9 @@ p{
     border-radius: 15px;
     color: white;
     font-size: 40px;
+}
+
+#tweets{
+    text-align: center;
+    margin-top: 50px;
 }
