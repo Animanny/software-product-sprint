@@ -8,15 +8,14 @@ body {
     position: absolute;
     top: 0px;
     left: 0px;
-    height: 200vh;
     display: block;
+    height:100%;
     width: 100%;
     background-color: #0e0e0e;
     z-index: -1;
 }
 
 #starContainer{
-    height:200vh;
     position: relative;
     justify-content: center;
     display: block;
@@ -186,13 +185,15 @@ p {
     margin-right: auto;
     width: 100%;
     display: grid;
-    grid-template-columns: 25% 25% 50%;
+    grid-template-columns: 300px 300px auto;
 }
 
-#about-content img{
+#aboutPic {
+    background-image: url("images/selfie.JPG");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     grid-column-start: 1;
-    width: 100%;
-    align-self: center;
 }
 
 #about-content #text {
@@ -228,16 +229,15 @@ p {
     width: 90%;
     margin-left: 5%;
     display:grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto ;
     grid-template-rows: auto auto auto auto auto auto;
+    padding-bottom: 15px;
 }
 
 #contactContent h1{
     font-size:40px;
     margin-top:10px;
     margin-bottom:10px;
-    grid-column-start: 1;
-    grid-column-end: 3;
 }
 
 
@@ -255,7 +255,6 @@ p {
     margin-top:0px;
     margin-bottom:15px !important;
     grid-column-start: 1;
-    grid-column-end: 3;
 }
 
 #contactContent i{
@@ -278,36 +277,61 @@ p {
     grid-column-start: 1;
 }
 
-#igHandle {
-    grid-column-start: 2;
-    grid-row-start: 3;
-}
 
 #twitterHandle {
-    grid-column-start: 2;
-    grid-row-start: 4;
+    margin-left: 30px;
+}
+
+#igHandle {
+    margin-left: 30px;
 }
 
 #githubHandle {
-    grid-column-start: 2;
-    grid-row-start: 5;
+    margin-left: 30px;
 }
 
-#imgTrigger{
-    border-bottom: white dotted;
+#github a{
+    display: flex;
+    width:fit-content;
 }
 
-#imgTrigger:hover {
-    border-bottom: none;
+#twitter a{
+    display: flex;
+    width:fit-content;
 }
 
+#ig a{
+    display: flex;
+    width:fit-content;
+}
 
 #greeting-container {
   margin-top: 20px;
 }
 
-#messageContainer{
+#messages{
+    padding-bottom: 15vh;
+    padding-top: 15vh;
     margin-left: auto;
     margin-right: auto;
     width: 850px;
+    color:white;
+}
+
+form input {
+    font-weight: 100;
+    font-family: 'Karla', sans-serif;
+    font-size: 25px;
+    border: none;
+    color: white;
+    background-color: #080808;
+    border-radius: 2em;
+    width: 400px;
+    height: 50px;
+    box-shadow: 0 4px 6px -5px hsl(0, 0%, 40%), inset 0px 4px 6px -5px black;
+    padding-left: 27px;
+}
+
+form textarea:focus, form input:focus{
+    outline:none;
 }

@@ -25,26 +25,6 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
-
-/* Handles image replacement on hover */
-function switchPic (trigger) {
-    imgAddress = null;
-    switch(trigger){
-        case 'toronto':
-            imgAddress  = "images/toronto.jpg";
-            break;
-        case 'og':
-            imgAddress = "images/selfie.JPG";
-            break;
-        case 'mars':
-            imgAddress = "images/mars_rover.jpg"
-            break;
-        default:
-
-    }
-    document.getElementById("aboutPic").src = imgAddress;
-}
-
 // Switch image for the experience container
 function experienceImgHandler(job){
     imgAddress = null;
@@ -67,4 +47,16 @@ function experienceImgHandler(job){
     }
     document.getElementById("experienceImage").src = imgAddress;
     document.getElementById("projecLink").href = projectLink;
+}
+
+//Fetch the greeting from the backend and display it on the page
+function fetchAndDisplayGreeting(){
+    fetch("/data").then(response => response.json()).then((messages) => {
+            var messageContainer = document.getElementById("messages");
+            messages.forEach((message) => {
+                var para = document.createElement("p");
+                para.innerText = message;
+                messageContainer.appendChild(para);
+            });
+    })
 }
