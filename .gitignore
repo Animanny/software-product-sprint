@@ -1,2 +1,3 @@
 target/
 .idea
+/portfolio/src/main/java/com/google/sps/servlets/twitter4j.properties
