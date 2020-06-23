@@ -54,16 +54,19 @@ public class AnalyzeTweet extends HttpServlet {
       try{
         List<Status> tl = twitter.getUserTimeline(request.getParameter("handle"), new Paging(1, 200));
         LanguageServiceClient languageService = LanguageServiceClient.create();
-        
         tl.removeIf(status -> status.isRetweet());
+        
         for(Status status:tl){
             Document doc = Document.newBuilder().setContent(status.getText()).setType(Document.Type.PLAIN_TEXT).build();
             Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
             float score = sentiment.getScore();
-            worstScoreLink = score < worstScore ? "https://twitter.com/" + status.getUser().getScreenName() + "/status/" + status.getId() : worstScoreLink;
-            worstScore = score < worstScore ? score : worstScore;
-            
+
+            if(score < worstScore){
+                worstScoreLink = "https://twitter.com/" + status.getUser().getScreenName() + "/status/" + status.getId();
+                worstScore = score;
+            }
         }
+
         languageService.close();
         System.out.println("Worst Score: "+worstScore);
         System.out.println("Worst Score Tweet: "+worstScoreLink);
