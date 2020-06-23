@@ -18,10 +18,12 @@ function updateTweet(e){
 
     fetch("/analyzeTwitter?handle="+receivedHandle).then((response) => response.json()).then((tweet) => {
         //Eventually display the best/worst tweets
-        document.getElementById('analyzing').style.display = "none";
-        document.getElementById('worstTweetLink').innerHTML = tweet;
-        document.getElementById('worstTweetLink').setAttribute("href",tweet);
-        document.getElementById('worstTweetLink').style.display = "inline";
+        twttr.ready(function (twttr) {
+            document.getElementById('analyzing').style.display = "none";
+            document.getElementById('worstTweetLink').innerHTML = tweet;
+            document.getElementById('worstTweetLink').style.display = "flex";
+            twttr.widgets.load();
+        });
 
     })
 }

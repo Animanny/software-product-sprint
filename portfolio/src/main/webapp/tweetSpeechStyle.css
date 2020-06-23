@@ -10,22 +10,18 @@ body {
     font-size: 80px;
     user-select: none;
     text-align: center;
-    margin-top: 200px;
+    margin-top: 130px;
 }
 
-p{
+#intro p{
     font-family: 'Karla', sans-serif;
     color: white;
     font-size: 25px;
     text-align: center;
+    width: 800px;
+    margin-left:calc((100% - 800px)/2);
 }
 
-a{
-    font-family: 'Karla', sans-serif;
-    color: white;
-    font-size: 25px;
-    text-align: center;
-}
 
 #handle{
     width: 300px;
@@ -38,7 +34,25 @@ a{
     font-size: 40px;
 }
 
-#tweets{
+#analyzing{
+    font-family: 'Karla', sans-serif;
+    color: white;
+    font-size: 25px;
     text-align: center;
+}
+
+#tweets{
     margin-top: 50px;
+    text-align: center;
+}
+
+#worstTweetLink{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+twitter-widget{
+    width: 500px !important;
 }
