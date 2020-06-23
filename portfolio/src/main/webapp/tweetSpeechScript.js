@@ -9,7 +9,6 @@ function updateTweet(e){
     document.getElementById('analyzing').style.display = "inline";
     document.getElementById('worstTweetLink').style.display = "none";
 
-
     var receivedHandle = document.getElementById('handle').value;
 
     //If the user typed their handle with an @, it removes it
