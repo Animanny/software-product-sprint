@@ -3,7 +3,12 @@ function getTweets(){
     return;
 }
 
-function updateTweet(){
+function updateTweet(e){
+    e.preventDefault();
+
+    document.getElementById('analyzing').style.display = "inline";
+    document.getElementById('worstTweetLink').style.display = "none";
+
     var receivedHandle = document.getElementById('handle').value;
 
     //If the user typed their handle with an @, it removes it
@@ -11,7 +16,14 @@ function updateTweet(){
         receivedHandle = receivedHandle.substr(1);
     }
 
-    fetch("/analyzeTwitter?handle="+receivedHandle).then(() => {
+    fetch("/analyzeTwitter?handle="+receivedHandle).then((response) => response.json()).then((tweet) => {
         //Eventually display the best/worst tweets
+        twttr.ready(function (twttr) {
+            document.getElementById('analyzing').style.display = "none";
+            document.getElementById('worstTweetLink').innerHTML = tweet;
+            document.getElementById('worstTweetLink').style.display = "flex";
+            twttr.widgets.load();
+        });
+
     })
 }
