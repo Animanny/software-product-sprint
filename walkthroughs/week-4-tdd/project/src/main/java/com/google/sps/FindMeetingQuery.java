@@ -23,13 +23,13 @@ public final class FindMeetingQuery {
     ArrayList<TimeRange> busyTimeRanges = new ArrayList();
     ArrayList<TimeRange> freeTimeRanges = new ArrayList();
 
-    //If there are no attendees, whole day is free
+    // If there are no attendees, whole day is free
     if(request.getAttendees().isEmpty()){
         freeTimeRanges.add(TimeRange.WHOLE_DAY);
         return freeTimeRanges;
     }
 
-    //If the meeting last longer than a day, than return empty free times
+    // If the meeting last longer than a day, than return empty free times
     if(request.getDuration() > TimeRange.WHOLE_DAY.duration()){
         return freeTimeRanges;
     }
@@ -44,7 +44,7 @@ public final class FindMeetingQuery {
         findFreeTimeAfterLastMeeting(busyTimeRanges, freeTimeRanges, request);
 
     } else {
-        //If no busy times, just return the full day
+        // If no busy times, just return the full day
         freeTimeRanges.add(TimeRange.fromStartEnd(TimeRange.START_OF_DAY, TimeRange.END_OF_DAY, true));
     }
 
@@ -55,7 +55,7 @@ public final class FindMeetingQuery {
     private ArrayList<TimeRange> getTimesRequestedAttendeesAreBusy(Collection<Event> events, MeetingRequest request){
         ArrayList<TimeRange> busyTimes = new ArrayList();
         for(Event event : events){
-            //Only add busy time if requested attendee is part of the event
+            // Only add busy time if requested attendee is part of the event
             if(!Collections.disjoint(event.getAttendees(), request.getAttendees())){
                 busyTimes.add(event.getWhen());
             }
@@ -71,7 +71,6 @@ public final class FindMeetingQuery {
     }
 
     private void findFreeTimeInBetweenMeetings(ArrayList<TimeRange> busyTimeRanges, ArrayList<TimeRange> freeTimeRanges, MeetingRequest request){
-        
         for(int i = 0; i < busyTimeRanges.size()-1; i++){
             if(busyTimeRanges.get(i+1).start() - busyTimeRanges.get(i).end() >= request.getDuration()){
                 freeTimeRanges.add(TimeRange.fromStartEnd(busyTimeRanges.get(i).end(), busyTimeRanges.get(i+1).start(),false));
